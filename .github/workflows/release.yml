@@ -40,13 +40,13 @@ jobs:
           asset_name: helloworld-1.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
   build-macos:
-  runs-on: macos-latest
-  steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-    - run: brew install boost
-    - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
-    - run: cmake --build .
-    - run: cmake --build . --target test
-    - run: ./helloworld_cli
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - run: brew install boost
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake --build .
+      - run: cmake --build . --target test
+      - run: ./helloworld_cli
